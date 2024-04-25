@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Bookmark Injector!",
+  "version": "0.1.1",
+  "description": "GoogleやYahooの検索結果に対応したブックマークを表示します。This extension displays bookmarks that correspond to search results from Google and Yahoo.",
+  "permissions": [
+    "bookmarks"
+  ],
+  "action": {},
+  "content_scripts": [
+    {
+      "js": [
+        "assets/content.tsx-loader-1PtHxM16.js"
+      ],
+      "matches": [
+        "https://www.google.com/search?*",
+        "https://www.google.co.jp/search?*",
+        "https://search.yahoo.co.jp/search?*",
+        "https://duckduckgo.com/?q*"
+      ],
+      "css": [
+        "assets/content-DpVDHdj6.css"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "service-worker-loader.js",
+    "type": "module"
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "minimum_chrome_version": "90",
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "https://duckduckgo.com/*",
+        "https://search.yahoo.co.jp/*",
+        "https://www.google.co.jp/*",
+        "https://www.google.com/*"
+      ],
+      "resources": [
+        "assets/content.tsx-cHyPB8tP.js"
+      ],
+      "use_dynamic_url": true
+    }
+  ]
+}
